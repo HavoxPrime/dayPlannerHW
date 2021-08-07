@@ -1,38 +1,37 @@
 var currentDate = moment().format("MMM Do YY");
-var currentTime = moment().format("hh:mm:ss a");
-var testTime = moment("1:30:00", "hh:mm:ss a");
+var current24Time = moment().format("HH:mm:ss a");
+var current12Time = moment().format("hh:mm:ss a");
+var testTime = moment("0:30:00", "HH:mm:ss a");
 var dayOrNight = moment().diff(moment().startOf("day"), "hours");
+var testDayNight = 11;
 var timeBoxes = [
   {
-    daClass: $(".12AM"),
-    beforeTime: moment("11:59:59", "hh:mm:ss a"),
-    afterTime: moment("12:59:59", "hh:mm:ss a"),
-    isDay: true,
+    daClass: ".12AM",
+    beforeTime: moment("0:00:00", "HH:mm:ss a"),
+    afterTime: moment("1:00:00", "HH:mm:ss a"),
   },
 ];
-console.log(currentDate);
-console.log(currentTime);
+//console.log(currentDate);
+//console.log(current24Time);
+//console.log(current12Time);
 
 function setUP() {
   $("#currentDay").append(
-    "Today is " + currentDate + " and it is curently " + currentTime
+    "Today is " + currentDate + " and it is curently " + current12Time
   );
   $(timeBoxes).each(function (i) {
-    var isAM;
-    if (dayOrNight > 12) {
-      isAM = true;
-    } else {
-      isAM = false;
-    }
     if (
       timeBoxes[i].beforeTime < testTime &&
       timeBoxes[i].afterTime > testTime
     ) {
-      console.log("is between");
+      //console.log("is between");
+      $(timeBoxes[i].daClass).children().css("background-color", "red");
     } else if (timeBoxes[i].beforeTime > testTime) {
-      console.log("is before");
+      //console.log("is before");
+      $(timeBoxes[i].daClass).children().css("background-color", "green");
     } else if (timeBoxes[i].afterTime < testTime) {
-      console.log("is after");
+      //console.log("is after");
+      $(timeBoxes[i].daClass).children().css("background-color", "gray");
     }
   });
 }
