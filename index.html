@@ -21,27 +21,29 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>Work Day Scheduler</title>
+    <title>Day Planner</title>
   </head>
 
-  <body>
+  <body class="bgCol">
     <header class="jumbotron">
-      <h1 class="display-3">Work Day Scheduler</h1>
-      <p class="lead">A simple calendar app for scheduling your work day</p>
+      <h1 class="display-3">Day Planner</h1>
+      <p class="lead">A simple calendar app for scheduling your day!</p>
       <p id="currentDay" class="lead"></p>
       <br />
     </header>
     <section class="container">
-      <!-- Timeblocks go here -->
+      <!-- Timeblocks are here -->
       <table class="table">
         <thead>
+          <!-- the headers for the table -->
           <tr>
             <th scope="col">Time</th>
             <th scope="col">Event</th>
-            <th scope="col">Buttons</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
+          <!-- each row is set like this -->
           <tr class="12AM">
             <th scope="row">12AM</th>
             <td class="col-8">
@@ -59,6 +61,7 @@
               </div>
             </td>
           </tr>
+
           <tr class="1AM">
             <th scope="row">1AM</th>
             <td class="col-8">
@@ -453,6 +456,7 @@
         </tbody>
       </table>
     </section>
+    <!-- adding in the js from around -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src=".\script.js"></script>

@@ -1,8 +1,10 @@
+//all my vars
 var currentDate = moment().format("MMM Do YY");
 var current24Time = moment();
 var current12Time = moment().format("hh:mm:ss a");
-var testTime = moment("22:05:00", "HH:mm:ss a");
+//var testTime = moment("14:30:00", "HH:mm:ss a");
 var saveButton = document.getElementsByClassName("saveEvent");
+// a list of all the boxes in the html
 var timeBoxes = [
   {
     daClass: ".12AM",
@@ -125,10 +127,8 @@ var timeBoxes = [
     afterTime: moment("24:00:00", "HH:mm:ss a"),
   },
 ];
-//console.log(currentDate);
-//console.log(current24Time);
-//console.log(testTime);
 
+// sets up the page when it is first loaded
 function setUP() {
   //adds current date and time to the header
   $("#currentDay").append(
@@ -183,6 +183,7 @@ function saveEvent() {
 }
 
 setUP();
+//setting listeners on the buttons
 for (i = 0; i < saveButton.length; i++) {
   saveButton[i].addEventListener("click", saveEvent);
 }
